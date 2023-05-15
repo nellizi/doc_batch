@@ -60,6 +60,12 @@
 			<artifactId>spring-context</artifactId>
 			<version>5.3.26</version>
 		</dependency>
+		<!--ojdbc8.jar 인코딩 방식 충돌 해결/지원되지 않는 문자-->
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>orai18n</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
