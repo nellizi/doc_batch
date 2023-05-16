@@ -2,10 +2,9 @@ package com.inzent.batch.document.model;
 
 
 import lombok.*;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 @Builder
@@ -35,18 +34,16 @@ public class CommonEntity {
     private String rrgNumber;
 
     @Setter
-    @UpdateTimestamp
     @Column(name = "regDate")
-    private LocalDateTime regDate;
+    private Date regDate;
 
     @Column(name = "Create_Usr")
     @Setter
     private String createUser;
 
     @Setter
-    @UpdateTimestamp
     @Column(name = "updateDate")
-    private LocalDateTime updateAt;
+    private Date updateAt;
 
     @Column(name = "Update_Usr")
     @Setter
