@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "INTEGRATED_TASK")
-public class IntegratedEnity {
+public class IntegratedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -75,5 +75,6 @@ public class IntegratedEnity {
     @Column(name = "DEL_YN")
     @Setter
     private String checkDelete;
+
 
 }

@@ -1,7 +1,7 @@
 package com.inzent.batch.document;
 
 
-import com.inzent.batch.document.model.IntegratedEnity;
+import com.inzent.batch.document.model.IntegratedEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,5 +10,5 @@ import java.util.List;
 public interface IntegratedRepositoryCustom {
 
 
-    List<IntegratedEnity> getIntegratedEntity();
+ List<IntegratedEntity> getIntegratedEntity();
 }
