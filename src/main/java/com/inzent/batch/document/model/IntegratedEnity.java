@@ -1,11 +1,11 @@
 package com.inzent.batch.document.model;
 
+
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Builder
@@ -13,9 +13,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "LOAN_TASK")
-public class LoanEntity {
-
+@Table(name = "INTEGRATED_TASK")
+public class IntegratedEnity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,17 +22,36 @@ public class LoanEntity {
     @Setter
     private String imageKey;
 
-    @Column(name = "CUST_NO")
-    @Setter
-    private String custNumber;
 
-    @Column(name = "CUST_NM")
+    @Column(name = "ELEMENTID")
     @Setter
-    private String custName;
+    private String elementId;
 
-    @Column(name = "RRN_NO")
+    @Column(name = "SEQ_NO")
     @Setter
-    private String rrgNumber;
+    private String seqNo;
+
+
+    @Column(name = "DOC_CD")
+    @Setter
+    private String documentCd;
+
+    @Setter
+    @Column(name = "DEL_DATE")
+    private LocalDateTime deleteDate;
+
+    @Column(name = "TASK_CD")
+    @Setter
+    private String taskCode;
+
+    @Column(name = "FILE_NM")
+    @Setter
+    private String fileName;
+
+    @Column(name = "EXTENTION")
+    @Setter
+    private String extention;
+
 
     @Setter
     @UpdateTimestamp
@@ -52,6 +70,7 @@ public class LoanEntity {
     @Column(name = "Update_Usr")
     @Setter
     private String updateUser;
+
 
     @Column(name = "DEL_YN")
     @Setter

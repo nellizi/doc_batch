@@ -24,15 +24,15 @@ public class DepositEntity {
 
     @Column(name = "CUST_NO")
     @Setter
-    private String custNo;
+    private String custNumber;
 
     @Column(name = "CUST_NM")
     @Setter
-    private String custNm;
+    private String custName;
 
     @Column(name = "RRN_NO")
     @Setter
-    private String rrgNo;
+    private String rrgNumber;
 
     @Setter
     @UpdateTimestamp

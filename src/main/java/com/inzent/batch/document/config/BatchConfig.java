@@ -1,8 +1,8 @@
 package com.inzent.batch.document.config;
 
-import com.inzent.batch.document.CommonRepository;
-import com.inzent.batch.document.CommonService;
-import com.inzent.batch.document.model.CommonEntity;
+import com.inzent.batch.document.IntegratedRepository;
+import com.inzent.batch.document.IntegratedService;
+import com.inzent.batch.document.model.IntegratedEnity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -28,10 +28,10 @@ public class BatchConfig {
     public StepBuilderFactory stepBuilderFactory;
 
     @Autowired
-    private CommonRepository commonRepository;
+    private IntegratedRepository integratedRepository;
 
     @Autowired
-    private CommonService commonService;
+    private IntegratedService integratedService;
 
     @Bean
     public Job job() {
@@ -50,16 +50,16 @@ public class BatchConfig {
                     log.info("Step!");
                     // 업데이트 시각이 일주일 이전인 문서 목록을 가져옴
                     // 1. 네이티브 쿼리 사용
-                    List<CommonEntity> limitedCommonEntity = commonRepository.selectLimiteCommonEntity();
+                    List<IntegratedEnity> integratedEnities = integratedRepository.getIntegratedEntity();
                     // 2. JPQL 사용
                     // LocalDateTime now = LocalDateTime.now();
                     // LocalDateTime aWeekAgo = now.minusDays(7);
                     // List<Document> limitedDocuments = documentRepository.findByUpdateAtLessThan(aWeekAgo)
 
-                    if (limitedCommonEntity.size() > 0 && limitedCommonEntity != null) {
-                        for (CommonEntity commonEntity : limitedCommonEntity) {
+                    if (integratedEnities.size() > 0 && integratedEnities != null) {
+                        for (IntegratedEnity integratedEnity : integratedEnities) {
                             // deleteDocument는 document_id를 받아 서버와 db에서 문서 삭제를 구현하는 서비스
-                            commonService.deleteCommonEntity(commonEntity.getImageKey());
+                            integratedService.deleteCommonEntity(integratedEnity.getImageKey());
                         }
                     }
                     return RepeatStatus.FINISHED;
