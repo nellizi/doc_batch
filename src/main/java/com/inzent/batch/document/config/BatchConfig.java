@@ -1,7 +1,7 @@
 //package com.inzent.batch.document.config;
 //
-//import com.inzent.batch.document.IntegratedRepository;
-//import com.inzent.batch.document.IntegratedService;
+//import com.inzent.batch.document.integrated.IntegratedRepository;
+//import com.inzent.batch.document.integrated.IntegratedService;
 //import com.inzent.batch.document.model.IntegratedEntity;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.batch.core.Job;

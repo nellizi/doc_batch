@@ -17,6 +17,10 @@ public class CommonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long integratedId;
+
+
     @Column(name = "IMG_KEY")
     @Setter
     private String imageKey;
@@ -53,6 +57,8 @@ public class CommonEntity {
     @Setter
     private String checkDelete;
 
-
+    @Column(name = "TASK_SIZE")
+    @Setter
+    private Long task_size;
 
 }

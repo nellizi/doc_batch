@@ -21,7 +21,6 @@ public class IntegratedEntity {
     @Column(name = "ID")
     private Long integratedId;
 
-
     @Column(name = "IMG_KEY")
     @Setter
     private String imageKey;

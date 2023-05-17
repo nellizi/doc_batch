@@ -1,4 +1,4 @@
-package com.inzent.batch.document;
+package com.inzent.batch.document.loan;
 
 
 import com.inzent.batch.document.model.IntegratedEntity;
@@ -10,7 +10,7 @@ import java.util.List;
 import static com.inzent.batch.document.model.QIntegratedEntity.integratedEntity;
 
 @RequiredArgsConstructor
-public class IntegratedRepositoryImpl implements IntegratedRepositoryCustom {
+public class LoanRepositoryImpl implements LoanRepositoryCustom {
 
     private final JPAQueryFactory jpaQueryFactory;
 

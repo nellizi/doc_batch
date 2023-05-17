@@ -17,6 +17,9 @@ public class DepositEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long integratedId;
+
     @Column(name = "IMG_KEY")
     @Setter
     private String imageKey;
@@ -52,5 +55,9 @@ public class DepositEntity {
     @Column(name = "DEL_YN")
     @Setter
     private String checkDelete;
+
+    @Column(name = "TASK_SIZE")
+    @Setter
+    private Long task_size;
 
 }
