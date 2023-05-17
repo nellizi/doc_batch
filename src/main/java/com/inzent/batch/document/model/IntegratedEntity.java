@@ -18,6 +18,10 @@ public class IntegratedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long integratedId;
+
+
     @Column(name = "IMG_KEY")
     @Setter
     private String imageKey;
@@ -54,18 +58,18 @@ public class IntegratedEntity {
 
 
     @Setter
-    @Column(name = "regDate")
+    @Column(name = "REGDATE")
     private Date regDate;
 
-    @Column(name = "Create_Usr")
+    @Column(name = "CREATE_USR")
     @Setter
     private String createUser;
 
     @Setter
-    @Column(name = "Update_At")
+    @Column(name = "UPDATE_AT")
     private Date updateAt;
 
-    @Column(name = "Update_Usr")
+    @Column(name = "UPDATE_USR")
     @Setter
     private String updateUser;
 

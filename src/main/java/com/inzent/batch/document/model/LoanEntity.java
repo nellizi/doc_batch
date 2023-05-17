@@ -35,18 +35,18 @@ public class LoanEntity {
     private String rrgNumber;
 
     @Setter
-    @Column(name = "regDate")
+    @Column(name = "REGDATE")
     private Date regDate;
 
-    @Column(name = "Create_Usr")
+    @Column(name = "CREATE_USR")
     @Setter
     private String createUser;
 
     @Setter
-    @Column(name = "updateDate")
+    @Column(name = "UPDATE_AT")
     private Date updateAt;
 
-    @Column(name = "Update_Usr")
+    @Column(name = "UPDATE_USR")
     @Setter
     private String updateUser;
 
