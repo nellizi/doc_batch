@@ -25,7 +25,6 @@ public class IntegratedEntity {
     @Setter
     private String imageKey;
 
-
     @Column(name = "ELEMENTID")
     @Setter
     private String elementId;
@@ -33,7 +32,6 @@ public class IntegratedEntity {
     @Column(name = "SEQ_NO")
     @Setter
     private String seqNo;
-
 
     @Column(name = "DOC_CD")
     @Setter
@@ -55,7 +53,6 @@ public class IntegratedEntity {
     @Setter
     private String extention;
 
-
     @Setter
     @Column(name = "REGDATE")
     private Date regDate;
@@ -71,7 +68,6 @@ public class IntegratedEntity {
     @Column(name = "UPDATE_USR")
     @Setter
     private String updateUser;
-
 
     @Column(name = "DEL_YN")
     @Setter

@@ -5,6 +5,7 @@ import com.inzent.batch.document.model.IntegratedEntity;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.inzent.batch.document.model.QIntegratedEntity.integratedEntity;
@@ -18,11 +19,9 @@ public class IntegratedRepositoryImpl implements IntegratedRepositoryCustom {
 
     @Override
     public List<IntegratedEntity> getIntegratedEntity() {
-//        LocalDateTime toDay = LocalDateTime.now();
-//        Date nowDate = java.sql.Timestamp.valueOf(toDay);
         List<IntegratedEntity> integratedEnities = jpaQueryFactory
                 .selectFrom(integratedEntity)
-//                .where(integratedEntity.deleteDate.after(LocalDateTime.now()))
+                .where(integratedEntity.deleteDate.before(LocalDateTime.now().plusDays(1)))
                 .fetch();
 
         return integratedEnities;
