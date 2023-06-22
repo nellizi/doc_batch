@@ -11,6 +11,4 @@ public interface IntegratedRepositoryCustom {
 
     List<IntegratedEntity> getIntegratedEntity();
 
-    List<IntegratedEntity> findByCheckDelete();
-
-}
+ }

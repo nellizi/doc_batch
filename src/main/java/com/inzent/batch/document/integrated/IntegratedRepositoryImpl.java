@@ -12,31 +12,15 @@ import static com.inzent.batch.document.model.QIntegratedEntity.integratedEntity
 
 @RequiredArgsConstructor
 public class IntegratedRepositoryImpl implements IntegratedRepositoryCustom {
-
     private final JPAQueryFactory jpaQueryFactory;
-
-
 
     @Override
     public List<IntegratedEntity> getIntegratedEntity() {
         List<IntegratedEntity> integratedEnities = jpaQueryFactory
                 .selectFrom(integratedEntity)
-                .where(integratedEntity.deleteDate.before(LocalDateTime.now().plusDays(1)))
+                .where(integratedEntity.deleteDate.before(LocalDateTime.now()))
                 .fetch();
 
         return integratedEnities;
     }
-
-    @Override
-    public List<IntegratedEntity> findByCheckDelete() {
-        List<IntegratedEntity> integratedEnities = jpaQueryFactory
-                .selectFrom(integratedEntity)
-                .where(integratedEntity.checkDelete.eq("N"))
-                .fetch();
-
-        return integratedEnities;
-    }
-
-
-
 }

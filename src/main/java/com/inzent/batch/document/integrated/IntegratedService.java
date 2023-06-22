@@ -7,8 +7,6 @@ import com.inzent.batch.document.model.IntegratedEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class IntegratedService {
 
@@ -25,29 +23,48 @@ public class IntegratedService {
     LoanService loanService;
 
 
-    public void deleteExpiredDocument() {
-        List<IntegratedEntity> integratedEntityList = integratedRepository.getIntegratedEntity();
+    public void deleteExpiredDocument(IntegratedEntity integratedEntity) {
+        integratedEntity.setCheckDelete("Y");
+        integratedRepository.save(integratedEntity);
 
-        for(IntegratedEntity integratedEntity : integratedEntityList){
-            integratedEntity.setCheckDelete("Y");
-            integratedRepository.save(integratedEntity);
+        String imgKey = integratedEntity.getImageKey();    //업무 키
+        int task_code = Integer.parseInt(integratedEntity.getTaskCode());   //업무 코드
 
-            String imgKey = integratedEntity.getImageKey();    //업무 키
-            int task_code = Integer.parseInt(integratedEntity.getTaskCode());   //업무 코드
-
-            switch (task_code){
-                //공통_Common
-                case 01: commonService.deleteExpiredTask(imgKey);
-                    break;
-                //수신_Deposit
-                case 02: depositService.deleteExpiredTask(imgKey);
-                    break;
-                //여신_Loan
-                case 03: loanService.deleteExpiredTask(imgKey);
-                    break;
-            }
-
+        switch (task_code){
+            //공통_Common
+            case 01: commonService.deleteExpiredTask(imgKey);
+                break;
+            //수신_Deposit
+            case 02: depositService.deleteExpiredTask(imgKey);
+                break;
+            //여신_Loan
+            case 03: loanService.deleteExpiredTask(imgKey);
+                break;
         }
-    }
 
+//        for(IntegratedEntity integratedEntity : integratedEntityList){
+//            System.out.println("===============================");
+//            System.out.println(integratedEntity.getDeleteDate());
+//            System.out.println("===============================");
+//            integratedEntity.setCheckDelete("Y");
+//            integratedRepository.save(integratedEntity);
+//
+//            String imgKey = integratedEntity.getImageKey();    //업무 키
+//            int task_code = Integer.parseInt(integratedEntity.getTaskCode());   //업무 코드
+//
+//            switch (task_code){
+//                //공통_Common
+//                case 01: commonService.deleteExpiredTask(imgKey);
+//                    break;
+//                //수신_Deposit
+//                case 02: depositService.deleteExpiredTask(imgKey);
+//                    break;
+//                //여신_Loan
+//                case 03: loanService.deleteExpiredTask(imgKey);
+//                    break;
+//            }
+//
+//        }
+        
+    }
 }

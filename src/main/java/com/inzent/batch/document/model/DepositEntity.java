@@ -1,9 +1,9 @@
 package com.inzent.batch.document.model;
 
+import com.inzent.batch.document.config.EntityDate;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 
 @Entity
@@ -13,12 +13,12 @@ import java.sql.Date;
 @Getter
 @Setter
 @Table(name = "DEPOSIT_TASK")
-public class DepositEntity {
+public class DepositEntity extends EntityDate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long integratedId;
+    private Long ID;
 
     @Column(name = "IMG_KEY")
     @Setter
@@ -27,30 +27,6 @@ public class DepositEntity {
     @Column(name = "CUST_NO")
     @Setter
     private String custNumber;
-
-    @Column(name = "CUST_NM")
-    @Setter
-    private String custName;
-
-    @Column(name = "RRN_NO")
-    @Setter
-    private String rrgNumber;
-
-    @Setter
-    @Column(name = "REGDATE")
-    private Date regDate;
-
-    @Column(name = "CREATE_USR")
-    @Setter
-    private String createUser;
-
-    @Setter
-    @Column(name = "UPDATE_AT")
-    private Date updateAt;
-
-    @Column(name = "UPDATE_USR")
-    @Setter
-    private String updateUser;
 
     @Column(name = "DEL_YN")
     @Setter

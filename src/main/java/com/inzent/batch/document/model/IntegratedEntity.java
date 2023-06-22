@@ -1,10 +1,10 @@
 package com.inzent.batch.document.model;
 
 
+import com.inzent.batch.document.config.EntityDate;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "INTEGRATED_TASK")
-public class IntegratedEntity {
+public class IntegratedEntity extends EntityDate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,27 +51,10 @@ public class IntegratedEntity {
 
     @Column(name = "EXTENTION")
     @Setter
-    private String extention;
-
-    @Setter
-    @Column(name = "REGDATE")
-    private Date regDate;
-
-    @Column(name = "CREATE_USR")
-    @Setter
-    private String createUser;
-
-    @Setter
-    @Column(name = "UPDATE_AT")
-    private Date updateAt;
-
-    @Column(name = "UPDATE_USR")
-    @Setter
-    private String updateUser;
+    private String extension;
 
     @Column(name = "DEL_YN")
     @Setter
     private String checkDelete;
-
 
 }
